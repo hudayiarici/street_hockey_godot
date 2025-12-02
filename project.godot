@@ -15,6 +15,14 @@ run/main_scene="uid://cuiphgebydr1b"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/size/mode="exclusive_fullscreen"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
 [input]
 
 ui_w={

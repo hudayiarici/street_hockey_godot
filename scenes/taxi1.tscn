@@ -1,22 +1,39 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdl0i0lekgqdr"]
+[gd_scene load_steps=15 format=3 uid="uid://bdl0i0lekgqdr"]
 
 [ext_resource type="Script" uid="uid://b8cfxdexqs3t3" path="res://scripts/taxi.gd" id="1_qfcln"]
 [ext_resource type="Texture2D" uid="uid://c18o462kvu2ng" path="res://sprites/Sayan.png" id="2_a5vla"]
+[ext_resource type="Texture2D" uid="uid://dxjmdmqq0k1tn" path="res://sprites/Sayan2.png" id="3_83guk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmegq"]
 atlas = ExtResource("2_a5vla")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3sco"]
+atlas = ExtResource("3_83guk")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0xgd"]
 atlas = ExtResource("2_a5vla")
 region = Rect2(16, 16, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_squo7"]
+atlas = ExtResource("3_83guk")
+region = Rect2(16, 16, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjbuy"]
 atlas = ExtResource("2_a5vla")
 region = Rect2(0, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eu1s"]
+atlas = ExtResource("3_83guk")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d34v2"]
 atlas = ExtResource("2_a5vla")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yinef"]
+atlas = ExtResource("3_83guk")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f3374"]
@@ -24,6 +41,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vmegq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3sco")
 }],
 "loop": true,
 "name": &"down",
@@ -32,6 +52,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t0xgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_squo7")
 }],
 "loop": true,
 "name": &"left",
@@ -40,6 +63,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rjbuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eu1s")
 }],
 "loop": true,
 "name": &"right",
@@ -48,14 +74,18 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d34v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yinef")
 }],
 "loop": true,
 "name": &"up",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kuek"]
-size = Vector2(16, 13)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2kuek"]
+radius = 7.0
+height = 18.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qfcln"]
 particle_flag_disable_z = true
@@ -66,20 +96,25 @@ initial_velocity_max = 150.0
 gravity = Vector3(0, 98, 0)
 scale_min = 2.0
 scale_max = 4.0
-color = Color(0.5, 0.5, 0.5, 0.8)
+color = Color(0.1, 0.1, 0.1, 0.8)
 
 [node name="Taxi" type="CharacterBody2D"]
 position = Vector2(500, 300)
 script = ExtResource("1_qfcln")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.7499983, 0)
+scale = Vector2(1.2812498, 1.0625)
 sprite_frames = SubResource("SpriteFrames_f3374")
-animation = &"right"
+animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_2kuek")
+position = Vector2(2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2kuek")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(3, 0)
 emitting = false
 amount = 30
 lifetime = 0.6

@@ -28,6 +28,15 @@ func _ready():
 	score_cooldown_timer.one_shot = true
 	score_cooldown_timer.timeout.connect(_on_score_cooldown_timeout)
 
+func apply_speed_modifier(modifier: float):
+	print("Puck Boosted! Modifier: ", modifier)
+	if linear_velocity.length() < 50:
+		# If almost stopped, launch it in a random direction
+		var random_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+		linear_velocity = random_dir * 500 * modifier
+	else:
+		linear_velocity *= modifier
+
 func _on_score_cooldown_timeout():
 	can_score = true
 	print("Puck ready for next goal!")

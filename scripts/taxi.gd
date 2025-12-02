@@ -4,7 +4,9 @@ extends CharacterBody2D
 @export var use_wasd: bool = true
 
 const MAX_SPEED = 1000.0  
-const ACCELERATION = 1500.0  
+var current_max_speed = MAX_SPEED
+const ACCELERATION = 1500.0
+var current_acceleration = ACCELERATION
 const HIT_FORCE_MULTIPLIER = 50.0 
 
 const MARGIN = 50.0
@@ -14,6 +16,18 @@ const CENTER_X = SCREEN_WIDTH / 2
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var exhaust_particles = $GPUParticles2D
+
+func apply_speed_modifier(modifier: float):
+	current_max_speed = MAX_SPEED * modifier
+
+func remove_speed_modifier():
+	current_max_speed = MAX_SPEED
+
+func apply_traction_modifier(modifier: float):
+	current_acceleration = ACCELERATION * modifier
+
+func remove_traction_modifier():
+	current_acceleration = ACCELERATION
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
@@ -32,13 +46,16 @@ func _physics_process(delta):
 				material.direction = Vector3(-input_vector.x, -input_vector.y, 0)
 			exhaust_particles.emitting = true
 		input_vector = input_vector.normalized()
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		# Use current_acceleration here
+		velocity = velocity.move_toward(input_vector * current_max_speed, current_acceleration * delta)
 		update_animation(input_vector)
 	else:
 		if exhaust_particles:
 			exhaust_particles.emitting = false
-		velocity = velocity.move_toward(Vector2.ZERO, ACCELERATION * delta)
+		# Use current_acceleration here for stopping too (sliding effect)
+		velocity = velocity.move_toward(Vector2.ZERO, current_acceleration * delta)
 		if animated_sprite:
+			# Keep the frame but don't play an animation sequence if distinct frames aren't available
 			animated_sprite.stop()
 	
 	move_and_slide()
