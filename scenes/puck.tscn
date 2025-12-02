@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm3m5bnmog7va"]
+
+[ext_resource type="Script" uid="uid://8hwx0mavtw28" path="res://scripts/puck.gd" id="1_puck_script"]
+[ext_resource type="Texture2D" uid="uid://h7c0pbfatqq4" path="res://sprites/puck.svg" id="2_puck_texture"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_puck_material"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_puck"]
+radius = 16.0
+
+[sub_resource type="Gradient" id="Gradient_trail_color"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_trail_color"]
+gradient = SubResource("Gradient_trail_color")
+
+[sub_resource type="Curve" id="Curve_trail_scale"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_trail_scale"]
+curve = SubResource("Curve_trail_scale")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_trail"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+initial_velocity_min = 0.0
+initial_velocity_max = 0.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_trail_scale")
+color_ramp = SubResource("GradientTexture1D_trail_color")
+
+[node name="Puck" type="RigidBody2D" groups=["puck"]]
+collision_layer = 2
+collision_mask = 3
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_puck_material")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 0.3
+script = ExtResource("1_puck_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("2_puck_texture")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_puck")
+
+[node name="TrailEmitter" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_trail")
+lifetime = 1.0
+speed_scale = 2.0

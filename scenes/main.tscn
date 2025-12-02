@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuiphgebydr1b"]
+
+[ext_resource type="PackedScene" uid="uid://bdl0i0lekgqdr" path="res://scenes/taxi1.tscn" id="1_taxi"]
+[ext_resource type="Texture2D" uid="uid://boovaae5dmdmo" path="res://sprites/Table.svg" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cm3m5bnmog7va" path="res://scenes/puck.tscn" id="3_puck"]
+[ext_resource type="Script" uid="uid://bopd7ejkylqc5" path="res://scripts/main.gd" id="4_nmdgn"]
+[ext_resource type="PackedScene" uid="uid://b2rkdhpyd5k5g" path="res://scenes/taxi2.tscn" id="4_tbgi4"]
+
+[sub_resource type="RectangleShape2D" id="5_top_wall_shape"]
+size = Vector2(1152, 50)
+
+[sub_resource type="RectangleShape2D" id="6_bottom_wall_shape"]
+size = Vector2(1152, 50)
+
+[sub_resource type="RectangleShape2D" id="7_corner_wall_shape"]
+size = Vector2(48, 216)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("4_nmdgn")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(574, 322.5)
+scale = Vector2(1.6010568, 1.4964871)
+texture = ExtResource("2_0wfyh")
+
+[node name="Taxi1" parent="." instance=ExtResource("1_taxi")]
+position = Vector2(300, 324)
+scale = Vector2(3, 3)
+
+[node name="Taxi2" parent="." instance=ExtResource("4_tbgi4")]
+position = Vector2(850, 324)
+scale = Vector2(3, 3)
+player_id = 2
+use_wasd = false
+
+[node name="Puck" parent="." instance=ExtResource("3_puck")]
+position = Vector2(576, 324)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 476.0
+offset_top = 20.0
+offset_right = 676.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "0 : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+position = Vector2(576, 23)
+shape = SubResource("5_top_wall_shape")
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+position = Vector2(576, 621)
+shape = SubResource("6_bottom_wall_shape")
+
+[node name="TopLeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeftWall"]
+position = Vector2(-11, 106)
+shape = SubResource("7_corner_wall_shape")
+
+[node name="BottomLeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeftWall"]
+position = Vector2(-9, 538)
+shape = SubResource("7_corner_wall_shape")
+
+[node name="TopRightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRightWall"]
+position = Vector2(1154, 108)
+shape = SubResource("7_corner_wall_shape")
+
+[node name="BottomRightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRightWall"]
+position = Vector2(1156, 540)
+shape = SubResource("7_corner_wall_shape")

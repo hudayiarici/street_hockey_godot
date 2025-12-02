@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdl0i0lekgqdr"]
+
+[ext_resource type="Script" uid="uid://b8cfxdexqs3t3" path="res://scripts/taxi.gd" id="1_qfcln"]
+[ext_resource type="Texture2D" uid="uid://c18o462kvu2ng" path="res://sprites/Sayan.png" id="2_a5vla"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmegq"]
+atlas = ExtResource("2_a5vla")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0xgd"]
+atlas = ExtResource("2_a5vla")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjbuy"]
+atlas = ExtResource("2_a5vla")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d34v2"]
+atlas = ExtResource("2_a5vla")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f3374"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmegq")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0xgd")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjbuy")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d34v2")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kuek"]
+size = Vector2(16, 13)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qfcln"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 80.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 4.0
+color = Color(0.5, 0.5, 0.5, 0.8)
+
+[node name="Taxi" type="CharacterBody2D"]
+position = Vector2(500, 300)
+script = ExtResource("1_qfcln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f3374")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2kuek")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_qfcln")
