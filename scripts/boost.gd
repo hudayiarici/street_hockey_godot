@@ -1,6 +1,7 @@
 extends Area2D
 
-@export var speed_modifier: float = 2.0 # 2 kat hız
+@export var speed_modifier: float = 3.0 
+@export var effect_duration: float = 3.0
 
 func _ready():
 	connect("body_entered", _on_body_entered)
@@ -14,4 +15,4 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.has_method("remove_speed_modifier"):
 		print("Taxi boost ended.")
-		body.remove_speed_modifier()
+		body.remove_speed_modifier(effect_duration)

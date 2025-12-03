@@ -1,0 +1,10 @@
+res://scenes/main.tscn
+res://scripts/oil.gd
+res://scripts/boost.gd
+res://scripts/cone.gd
+res://scripts/taxi.gd
+res://scripts/puck.gd
+res://scripts/main.gd
+res://scenes/boost.tscn
+res://scenes/cone.tscn
+res://scenes/oil.tscn

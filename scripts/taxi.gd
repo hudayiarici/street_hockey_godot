@@ -17,16 +17,45 @@ const CENTER_X = SCREEN_WIDTH / 2
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var exhaust_particles = $GPUParticles2D
 
+var speed_reset_timer: Timer
+var traction_reset_timer: Timer
+const EFFECT_DURATION = 5.0
+
+func _ready():
+	# Setup Speed Reset Timer
+	speed_reset_timer = Timer.new()
+	speed_reset_timer.wait_time = EFFECT_DURATION
+	speed_reset_timer.one_shot = true
+	speed_reset_timer.timeout.connect(_on_speed_reset_timeout)
+	add_child(speed_reset_timer)
+
+	# Setup Traction Reset Timer
+	traction_reset_timer = Timer.new()
+	traction_reset_timer.wait_time = EFFECT_DURATION
+	traction_reset_timer.one_shot = true
+	traction_reset_timer.timeout.connect(_on_traction_reset_timeout)
+	add_child(traction_reset_timer)
+
 func apply_speed_modifier(modifier: float):
+	speed_reset_timer.stop() # Cancel reset if we enter a new zone
 	current_max_speed = MAX_SPEED * modifier
 
-func remove_speed_modifier():
+func remove_speed_modifier(duration: float = 1.0):
+	speed_reset_timer.wait_time = duration
+	speed_reset_timer.start() # Start cooldown to reset
+
+func _on_speed_reset_timeout():
 	current_max_speed = MAX_SPEED
 
 func apply_traction_modifier(modifier: float):
+	traction_reset_timer.stop() # Cancel reset if we enter a new zone
 	current_acceleration = ACCELERATION * modifier
 
-func remove_traction_modifier():
+func remove_traction_modifier(duration: float = 1.0):
+	traction_reset_timer.wait_time = duration
+	traction_reset_timer.start() # Start cooldown to reset
+
+func _on_traction_reset_timeout():
 	current_acceleration = ACCELERATION
 
 func _physics_process(delta):
@@ -60,12 +89,21 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	# Handle Screen Bounds (Clamping) and Reset Velocity on Impact
+	var target_x = position.x
 	if player_id == 1:
-		position.x = clamp(position.x, MARGIN, CENTER_X - 10)
+		target_x = clamp(position.x, MARGIN, CENTER_X - 10)
 	else:
-		position.x = clamp(position.x, CENTER_X + 10, SCREEN_WIDTH - MARGIN)
+		target_x = clamp(position.x, CENTER_X + 10, SCREEN_WIDTH - MARGIN)
 	
-	position.y = clamp(position.y, MARGIN, SCREEN_HEIGHT - MARGIN)
+	if position.x != target_x:
+		position.x = target_x
+		velocity.x = 0 # Hit the wall, stop horizontal movement
+
+	var target_y = clamp(position.y, MARGIN, SCREEN_HEIGHT - MARGIN)
+	if position.y != target_y:
+		position.y = target_y
+		velocity.y = 0 # Hit the wall, stop vertical movement
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -78,6 +116,9 @@ func _physics_process(delta):
 				var hit_direction = (puck.global_position - global_position).normalized()
 				puck.linear_velocity = hit_direction * puck.MAX_SPEED
 				print("Puck hit! New velocity set.")
+		else:
+			# Hit a wall/house/obstacle -> Stop completely
+			velocity = Vector2.ZERO
 
 func update_animation(direction: Vector2):
 	if not animated_sprite:

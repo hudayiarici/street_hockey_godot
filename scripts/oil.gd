@@ -1,6 +1,7 @@
 extends Area2D
 
-@export var traction_modifier: float = 0.50 # %10 tutuş (çok kaygan)
+@export var traction_modifier: float = 0.1
+@export var effect_duration: float = 1.0
 
 func _ready():
 	connect("body_entered", _on_body_entered)
@@ -14,4 +15,4 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.has_method("remove_traction_modifier"):
 		print("Taxi exited oil.")
-		body.remove_traction_modifier()
+		body.remove_traction_modifier(effect_duration)

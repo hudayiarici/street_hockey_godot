@@ -19,7 +19,7 @@ var score_cooldown_timer: Timer
 func _ready():
 	contact_monitor = true
 	max_contacts_reported = 10
-	linear_damp = 0.5  
+	linear_damp = 0.1  
 	print("Puck ready! Mass: ", mass)
 	
 	score_cooldown_timer = Timer.new()
