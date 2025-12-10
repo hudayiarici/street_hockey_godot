@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 signal goal_scored(player_id: int)
+signal puck_hit(player_id: int)
 
 @export var MAX_SPEED = 16000.0 
 const FRICTION_FORCE = 1.0  
@@ -19,14 +20,17 @@ var score_cooldown_timer: Timer
 func _ready():
 	contact_monitor = true
 	max_contacts_reported = 10
-	linear_damp = 0.1  
+	linear_damp = 0.1
 	print("Puck ready! Mass: ", mass)
-	
+
 	score_cooldown_timer = Timer.new()
 	add_child(score_cooldown_timer)
 	score_cooldown_timer.wait_time = 1.0
 	score_cooldown_timer.one_shot = true
 	score_cooldown_timer.timeout.connect(_on_score_cooldown_timeout)
+
+	# Connect body entered signal for fuel refill
+	body_entered.connect(_on_body_entered)
 
 func apply_speed_modifier(modifier: float):
 	print("Puck Boosted! Modifier: ", modifier)
@@ -40,6 +44,13 @@ func apply_speed_modifier(modifier: float):
 func _on_score_cooldown_timeout():
 	can_score = true
 	print("Puck ready for next goal!")
+
+func _on_body_entered(body):
+	# Check if the body is a taxi/player
+	if body.get("player_id") != null:
+		var player_id = body.player_id
+		print("Puck hit by Player ", player_id, "! Refilling fuel...")
+		puck_hit.emit(player_id)
 
 func _physics_process(delta):
 	var vel = linear_velocity

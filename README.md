@@ -2,14 +2,6 @@
 
 This project is a 2-player air hockey game built for the Godot Piscine educational series. Two players compete to score goals by hitting a puck with their taxis.
 
-## 🎮 Controls
-
-- **Player 1 (Left side):** Use `WASD` to move the taxi.
-- **Player 2 (Right side):** Use `Arrow Keys` to move the taxi.
-- **Pause/Resume:** Press `ESC` to pause the game.
-- **Restart:** Press `R` to restart the game.
-- **Exit (from pause):** Press `E` to exit.
-
 ## 🏒 Game Rules
 
 - **Objective:** Score 3 goals to win!
@@ -68,8 +60,48 @@ In this week, we expanded the simulation by building a city environment and addi
 - **Puck Physics:**
   - Reduced `linear_damp` (friction) from 0.5 to 0.1 to make the puck slide more freely, resembling a real air hockey puck.
 
+# Godot Piscine - Week 2: HUD & Game Flow
+
+Week 2 introduces a polished user interface with fuel management, distance tracking, and proper game flow screens.
+
+## 🎯 Features (Week 2)
+
+### Mandatory
+- [x] **Start Screen:** Game begins with a welcome screen. Press `SPACE` to start, or `E` to exit.
+- [x] **Fuel Counter:** Visual fuel gauge with animated sprites from Week 2 assets. **Each player has their own fuel system.**
+- [x] **Fuel Consumption:** Fuel decreases as taxis move (5 fuel/second). **Separate tracking for Player 1 and Player 2.**
+- [x] **Game Over Screen:** Displays when a player runs out of fuel, showing both players' distances.
+
+### Bonus Features
+- [x] **Pause Menu:** Press `ESC` to pause the game anytime. Press `SPACE` to resume, `R` to restart, or `E` to exit.
+- [x] **Proper Pause System:** Game completely freezes when paused (using `process_mode` system).
+- [x] **Distance Counter:** Tracks total distance traveled by both players separately in real-time.
+- [x] **Dual HUD System:** Each player has their own HUD (Player 1: top-left, Player 2: top-right).
+- [x] **Fuel Refill Mechanic:** Hitting the puck refills your fuel to 100%!
+- [x] **Animated Fuel Gauge:** Uses 3-stage visual feedback:
+  - **100%-67%**: Green gauge (`Tachimetro6/Tachimetrofull6`)
+  - **66%-34%**: Orange gauge (`Tachimetro4/Tachimetrofull4`)
+  - **33%-0%**: Red gauge (`Tachimetro1/Tachimetrofull1`)
+  - Needle (`lancetta`) rotates counter-clockwise from 0° (100% fuel) to -270° (0% fuel).
+
+## 🎮 Updated Controls
+
+- **SPACE** - Start game (from start screen)
+- **Player 1 (Left side):** Use `WASD` to move the taxi.
+- **Player 2 (Right side):** Use `Arrow Keys` to move the taxi.
+- **ESC** - Pause/Resume game
+- **R** - Restart game (from pause or game over)
+- **E** - Exit game (from pause or game over)
+
+## 🔄 Game Flow
+
+1. **Start Screen** → Press SPACE
+2. **Gameplay** → Move taxis, consume fuel, track distance
+3. **Pause Menu** → Press ESC anytime
+4. **Game Over** → When fuel reaches 0, or 3 goals scored
+
 ## 🚀 How to Run
 
 1. Open Godot Engine.
-2. Import this folder (`Week1`).
+2. Import this folder.
 3. Run the project (F5) or open `scenes/main.tscn`.

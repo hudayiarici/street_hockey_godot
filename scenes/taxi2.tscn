@@ -99,6 +99,7 @@ scale_max = 4.0
 color = Color(0.1, 0.1, 0.1, 0.8)
 
 [node name="Taxi" type="CharacterBody2D"]
+process_mode = 1
 position = Vector2(500, 300)
 script = ExtResource("1_qfcln")
 

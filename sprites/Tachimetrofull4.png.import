@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhscehhgn27tx"
-path="res://.godot/imported/Tachimetrofull4.png-9f115b837a8e928b8c9b1daec1c8ac18.ctex"
+path="res://.godot/imported/Tachimetrofull4.png-1c4923968a45e2e87bfd419f506aafad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Piscine Godot - Week 2/Tachimetrofull4.png"
-dest_files=["res://.godot/imported/Tachimetrofull4.png-9f115b837a8e928b8c9b1daec1c8ac18.ctex"]
+source_file="res://sprites/Tachimetrofull4.png"
+dest_files=["res://.godot/imported/Tachimetrofull4.png-1c4923968a45e2e87bfd419f506aafad.ctex"]
 
 [params]
 

@@ -2,14 +2,6 @@
 
 Bu proje, Godot Piscine eğitim serisi için geliştirilmiş 2 oyunculu bir hava hokeyi oyunudur. İki oyuncu, taksilerle puck'ı (diski) iterek gol atmaya çalışır.
 
-## 🎮 Kontroller
-
-- **Oyuncu 1 (Sol taraf):** Taksiyi hareket ettirmek için `WASD` tuşlarını kullanın.
-- **Oyuncu 2 (Sağ taraf):** Taksiyi hareket ettirmek için `Ok Tuşlarını` kullanın.
-- **Duraklat/Devam:** Oyunu durdurmak için `ESC` tuşuna basın.
-- **Yeniden Başlat:** Oyunu yeniden başlatmak için `R` tuşuna basın.
-- **Çıkış (duraklatma ekranından):** Çıkmak için `E` tuşuna basın.
-
 ## 🏒 Oyun Kuralları
 
 - **Amaç:** Kazanmak için 3 gol atın!
@@ -68,8 +60,48 @@ Bu hafta, bir şehir ortamı inşa ederek ve etkileşimli engeller ekleyerek sim
 - **Disk (Puck) Fiziği:**
   - Diskin daha rahat kayması ve gerçek bir hava hokeyi diski gibi hissettirmesi için `linear_damp` (sürtünme) değeri 0.5'ten 0.1'e düşürüldü.
 
+# Godot Piscine - Hafta 2: HUD ve Oyun Akışı
+
+Hafta 2'de yakıt yönetimi, mesafe takibi ve düzgün oyun akış ekranları ile cilalı bir kullanıcı arayüzü eklendi.
+
+## 🎯 Özellikler (Hafta 2)
+
+### Zorunlu (Mandatory)
+- [x] **Başlangıç Ekranı:** Oyun bir karşılama ekranı ile başlıyor. Başlamak için `SPACE`, çıkmak için `E` tuşuna basın.
+- [x] **Yakıt Sayacı:** Week 2 asset'lerinden alınan animasyonlu sprite'lar ile görsel yakıt göstergesi. **Her oyuncunun kendi yakıt sistemi var.**
+- [x] **Yakıt Tüketimi:** Taksiler hareket ettikçe yakıt azalıyor (5 yakıt/saniye). **Oyuncu 1 ve Oyuncu 2 için ayrı takip.**
+- [x] **Oyun Sonu Ekranı:** Bir oyuncunun yakıtı bittiğinde ekrana gelir ve her iki oyuncunun mesafesini gösterir.
+
+### Bonus Özellikler
+- [x] **Duraklama Menüsü:** İstediğiniz zaman `ESC` tuşuna basarak oyunu durdurun. Devam için `SPACE`, yeniden başlat için `R`, çıkış için `E`.
+- [x] **Düzgün Pause Sistemi:** Oyun duraklatıldığında tamamen donar (`process_mode` sistemi kullanılarak).
+- [x] **Mesafe Sayacı:** Her iki oyuncunun da gittiği toplam mesafeyi ayrı ayrı gerçek zamanlı olarak takip eder.
+- [x] **İkili HUD Sistemi:** Her oyuncunun kendi HUD'u var (Oyuncu 1: sol üst, Oyuncu 2: sağ üst).
+- [x] **Yakıt Doldurma Mekaniği:** Puck'a çarptığınızda yakıtınız %100'e doluyor!
+- [x] **Animasyonlu Yakıt Göstergesi:** 3 aşamalı görsel geri bildirim kullanır:
+  - **%100-%67**: Yeşil gösterge (`Tachimetro6/Tachimetrofull6`)
+  - **%66-%34**: Turuncu gösterge (`Tachimetro4/Tachimetrofull4`)
+  - **%33-%0**: Kırmızı gösterge (`Tachimetro1/Tachimetrofull1`)
+  - İbre (`lancetta`) yakıt seviyesine göre saat yönünün tersine 0° (%100 yakıt) ile -270° (%0 yakıt) arasında döner.
+
+## 🎮 Güncellenmiş Kontroller
+
+- **SPACE** - Oyunu başlat (başlangıç ekranından)
+- **Oyuncu 1 (Sol taraf):** Taksiyi hareket ettirmek için `WASD` tuşlarını kullanın.
+- **Oyuncu 2 (Sağ taraf):** Taksiyi hareket ettirmek için `Ok Tuşlarını` kullanın.
+- **ESC** - Oyunu duraklat/devam ettir
+- **R** - Oyunu yeniden başlat (duraklama veya oyun sonu ekranından)
+- **E** - Oyundan çık (duraklama veya oyun sonu ekranından)
+
+## 🔄 Oyun Akışı
+
+1. **Başlangıç Ekranı** → SPACE'e basın
+2. **Oynanış** → Taksileri hareket ettirin, yakıt tüketin, mesafe kaydedin
+3. **Duraklama Menüsü** → İstediğiniz zaman ESC'ye basın
+4. **Oyun Sonu** → Yakıt 0'a ulaştığında veya 3 gol atıldığında
+
 ## 🚀 Nasıl Çalıştırılır
 
 1. Godot Engine'i açın.
-2. Bu klasörü (`Week1`) import edin.
+2. Bu klasörü import edin.
 3. Projeyi çalıştırın (F5) veya `scenes/main.tscn` sahnesini açın.

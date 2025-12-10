@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csk6mmwmvn48w"
-path="res://.godot/imported/Tachimetrofull1.png-a32cf7b1e8ac29596e9a716807315951.ctex"
+uid="uid://ckp8j6eaao2cv"
+path="res://.godot/imported/Tachimetro6.png-3d35934e05af8c50e1ee31c727207629.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Piscine Godot - Week 2/Tachimetrofull1.png"
-dest_files=["res://.godot/imported/Tachimetrofull1.png-a32cf7b1e8ac29596e9a716807315951.ctex"]
+source_file="res://sprites/Tachimetro6.png"
+dest_files=["res://.godot/imported/Tachimetro6.png-3d35934e05af8c50e1ee31c727207629.ctex"]
 
 [params]
 

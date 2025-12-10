@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpqt5xwxkwqvd"]
+
+[ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_start"]
+
+[node name="StartScreen" type="CanvasLayer"]
+script = ExtResource("1_start")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "STREET HOCKEY"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "TAXI EDITION"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="StartButton" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Press SPACE to Start"
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Player 1: WASD | Player 2: Arrow Keys"
+horizontal_alignment = 1
+
+[node name="QuitButton" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Press E to Exit"
+horizontal_alignment = 1

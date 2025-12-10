@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cuiphgebydr1b"]
+[gd_scene load_steps=19 format=4 uid="uid://cuiphgebydr1b"]
 
 [ext_resource type="PackedScene" uid="uid://bdl0i0lekgqdr" path="res://scenes/taxi1.tscn" id="1_taxi"]
 [ext_resource type="PackedScene" uid="uid://cm3m5bnmog7va" path="res://scenes/puck.tscn" id="3_puck"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://mj4yywnyefh4" path="res://scenes/oil.tscn" id="9_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://dkiiovtytvwc5" path="res://sprites/StreetTileset.png" id="10_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://dqvbt3g27xavx" path="res://sprites/Hauses.png" id="11_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://dpqt5xwxkwqvd" path="res://scenes/start_screen.tscn" id="12_start"]
+[ext_resource type="PackedScene" uid="uid://c8mf3vwxkwqvf" path="res://scenes/game_over_screen.tscn" id="13_gameover"]
+[ext_resource type="PackedScene" uid="uid://c7mf3vwxkwqvm" path="res://scenes/pause_menu.tscn" id="14_pause"]
+[ext_resource type="PackedScene" uid="uid://bxmf3vwxkwqvh" path="res://scenes/hud.tscn" id="15_hud"]
+[ext_resource type="PackedScene" uid="uid://dxmf3vwxkwqvi" path="res://scenes/hud_player2.tscn" id="16_hud2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
 texture = ExtResource("10_ya4ey")
@@ -340,3 +345,13 @@ theme_override_font_sizes/font_size = 48
 text = "0 : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StartScreen" parent="." instance=ExtResource("12_start")]
+
+[node name="GameOverScreen" parent="." instance=ExtResource("13_gameover")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_pause")]
+
+[node name="HUD_Player1" parent="." instance=ExtResource("15_hud")]
+
+[node name="HUD_Player2" parent="." instance=ExtResource("16_hud2")]

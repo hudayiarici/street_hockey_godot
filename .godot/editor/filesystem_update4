@@ -1,0 +1,6 @@
+res://scripts/main.gd
+res://scripts/game_over_screen.gd
+res://scripts/hud.gd
+res://scripts/puck.gd
+res://scripts/pause_menu.gd
+res://scripts/start_screen.gd

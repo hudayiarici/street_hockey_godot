@@ -34,6 +34,7 @@ scale_curve = SubResource("CurveTexture_trail_scale")
 color_ramp = SubResource("GradientTexture1D_trail_color")
 
 [node name="Puck" type="RigidBody2D" groups=["puck"]]
+process_mode = 1
 collision_layer = 2
 collision_mask = 3
 mass = 0.5
