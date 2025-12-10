@@ -78,11 +78,12 @@ Hafta 2'de yakıt yönetimi, mesafe takibi ve düzgün oyun akış ekranları il
 - [x] **Mesafe Sayacı:** Her iki oyuncunun da gittiği toplam mesafeyi ayrı ayrı gerçek zamanlı olarak takip eder.
 - [x] **İkili HUD Sistemi:** Her oyuncunun kendi HUD'u var (Oyuncu 1: sol üst, Oyuncu 2: sağ üst).
 - [x] **Yakıt Doldurma Mekaniği:** Puck'a çarptığınızda yakıtınız %100'e doluyor!
-- [x] **Animasyonlu Yakıt Göstergesi:** 3 aşamalı görsel geri bildirim kullanır:
-  - **%100-%67**: Yeşil gösterge (`Tachimetro6/Tachimetrofull6`)
-  - **%66-%34**: Turuncu gösterge (`Tachimetro4/Tachimetrofull4`)
-  - **%33-%0**: Kırmızı gösterge (`Tachimetro1/Tachimetrofull1`)
-  - İbre (`lancetta`) yakıt seviyesine göre saat yönünün tersine 0° (%100 yakıt) ile -270° (%0 yakıt) arasında döner.
+- [x] **Animasyonlu Yakıt Göstergesi:** 3 aşamalı görsel geri bildirim ve animasyonlu ibre kullanır:
+  - **%100-%67**: Yeşil gösterge (`Tachimetrofull6`)
+  - **%66-%34**: Turuncu gösterge (`Tachimetrofull4`)
+  - **%33-%0**: Kırmızı gösterge (`Tachimetrofull1`)
+  - İbre (`lancetta`) yakıt seviyesine göre saat yönünün tersine 0° (%100 yakıt) ile -270° (%0 yakıt) arasında döner
+  - Sadece `Tachimetrofull` sprite'ları kullanılıyor (ibre çizilmemiş), ibre ayrı animasyonlu sprite
 
 ## 🎮 Güncellenmiş Kontroller
 

@@ -78,11 +78,12 @@ Week 2 introduces a polished user interface with fuel management, distance track
 - [x] **Distance Counter:** Tracks total distance traveled by both players separately in real-time.
 - [x] **Dual HUD System:** Each player has their own HUD (Player 1: top-left, Player 2: top-right).
 - [x] **Fuel Refill Mechanic:** Hitting the puck refills your fuel to 100%!
-- [x] **Animated Fuel Gauge:** Uses 3-stage visual feedback:
-  - **100%-67%**: Green gauge (`Tachimetro6/Tachimetrofull6`)
-  - **66%-34%**: Orange gauge (`Tachimetro4/Tachimetrofull4`)
-  - **33%-0%**: Red gauge (`Tachimetro1/Tachimetrofull1`)
-  - Needle (`lancetta`) rotates counter-clockwise from 0° (100% fuel) to -270° (0% fuel).
+- [x] **Animated Fuel Gauge:** Uses 3-stage visual feedback with animated needle:
+  - **100%-67%**: Green gauge (`Tachimetrofull6`)
+  - **66%-34%**: Orange gauge (`Tachimetrofull4`)
+  - **33%-0%**: Red gauge (`Tachimetrofull1`)
+  - Needle (`lancetta`) rotates counter-clockwise from 0° (100% fuel) to -270° (0% fuel)
+  - Only uses `Tachimetrofull` sprites (without drawn needle), needle is separate animated sprite
 
 ## 🎮 Updated Controls
 
