@@ -223,19 +223,21 @@ func _on_quit_game():
 	get_tree().quit()
 
 func _on_puck_hit(player_id: int):
-	print("Puck hit by Player ", player_id, "! Refilling fuel...")
+	print("Puck hit by Player ", player_id, "! Adding fuel...")
 
-	# Refill fuel to 100%
+	# Add 10% fuel (10 points), max 100
 	if player_id == 1:
-		fuel_player1 = MAX_FUEL
+		fuel_player1 = min(fuel_player1 + 10.0, MAX_FUEL)
 		if hud_player1:
-			hud_player1.update_fuel_display(100.0)
-		print("Player 1 fuel refilled to 100%")
+			var fuel_percent = (fuel_player1 / MAX_FUEL) * 100.0
+			hud_player1.update_fuel_display(fuel_percent)
+		print("Player 1 fuel increased by 10%, now at: ", fuel_player1)
 	elif player_id == 2:
-		fuel_player2 = MAX_FUEL
+		fuel_player2 = min(fuel_player2 + 10.0, MAX_FUEL)
 		if hud_player2:
-			hud_player2.update_fuel_display(100.0)
-		print("Player 2 fuel refilled to 100%")
+			var fuel_percent = (fuel_player2 / MAX_FUEL) * 100.0
+			hud_player2.update_fuel_display(fuel_percent)
+		print("Player 2 fuel increased by 10%, now at: ", fuel_player2)
 
 func _on_goal_scored(player_id: int):
 	print("GOAL! Player ", player_id, " scored!")
@@ -278,12 +280,11 @@ func end_game(winner_id: int):
 		puck.linear_velocity = Vector2.ZERO
 		puck.set_physics_process(false)
 
-	# Show game over screen
+	# Show game over screen for air hockey victory
 	if game_over_screen:
-		var loser_id = 2 if winner_id == 1 else 1
-		game_over_screen.show_game_over_fuel(loser_id, distance_player1, distance_player2)
+		game_over_screen.show_game_over_score(winner_id, distance_player1, distance_player2)
 
-	print("Game Over! Player ", winner_id, " wins!")
+	print("Game Over! Player ", winner_id, " wins by scoring 3 goals!")
 
 func restart_game():
 	print("Restarting game...")

@@ -77,7 +77,7 @@ Hafta 2'de yakıt yönetimi, mesafe takibi ve düzgün oyun akış ekranları il
 - [x] **Düzgün Pause Sistemi:** Oyun duraklatıldığında tamamen donar (`process_mode` sistemi kullanılarak).
 - [x] **Mesafe Sayacı:** Her iki oyuncunun da gittiği toplam mesafeyi ayrı ayrı gerçek zamanlı olarak takip eder.
 - [x] **İkili HUD Sistemi:** Her oyuncunun kendi HUD'u var (Oyuncu 1: sol üst, Oyuncu 2: sağ üst).
-- [x] **Yakıt Doldurma Mekaniği:** Puck'a çarptığınızda yakıtınız %100'e doluyor!
+- [x] **Yakıt Doldurma Mekaniği:** Puck'a çarptığınızda yakıtınız %10 artıyor (maksimum %100'e kadar)!
 - [x] **Animasyonlu Yakıt Göstergesi:** 3 aşamalı görsel geri bildirim ve animasyonlu ibre kullanır:
   - **%100-%67**: Yeşil gösterge (`Tachimetrofull6`)
   - **%66-%34**: Turuncu gösterge (`Tachimetrofull4`)

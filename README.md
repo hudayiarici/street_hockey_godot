@@ -77,7 +77,7 @@ Week 2 introduces a polished user interface with fuel management, distance track
 - [x] **Proper Pause System:** Game completely freezes when paused (using `process_mode` system).
 - [x] **Distance Counter:** Tracks total distance traveled by both players separately in real-time.
 - [x] **Dual HUD System:** Each player has their own HUD (Player 1: top-left, Player 2: top-right).
-- [x] **Fuel Refill Mechanic:** Hitting the puck refills your fuel to 100%!
+- [x] **Fuel Refill Mechanic:** Hitting the puck refills your fuel by 10% (up to a maximum of 100%)!
 - [x] **Animated Fuel Gauge:** Uses 3-stage visual feedback with animated needle:
   - **100%-67%**: Green gauge (`Tachimetrofull6`)
   - **66%-34%**: Orange gauge (`Tachimetrofull4`)

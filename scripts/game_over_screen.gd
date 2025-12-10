@@ -20,6 +20,11 @@ func show_game_over_fuel(losing_player: int, distance_p1: float, distance_p2: fl
 	distance_label.text = "P1: " + str(int(distance_p1)) + " m | P2: " + str(int(distance_p2)) + " m"
 	show()
 
+func show_game_over_score(winner: int, distance_p1: float, distance_p2: float):
+	title_label.text = "PLAYER " + str(winner) + " WINS!\nAIR HOCKEY VICTORY!"
+	distance_label.text = "P1: " + str(int(distance_p1)) + " m | P2: " + str(int(distance_p2)) + " m"
+	show()
+
 func _process(delta):
 	if visible:
 		if Input.is_action_just_pressed("ui_restart"):  # R key
