@@ -29,6 +29,10 @@ var distance_player2: float = 0.0
 var last_position_p1: Vector2
 var last_position_p2: Vector2
 
+# Player starting positions
+const PLAYER1_START_POS = Vector2(300, 324)
+const PLAYER2_START_POS = Vector2(850, 324)
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	print("Game started!")
@@ -253,7 +257,22 @@ func _on_goal_scored(player_id: int):
 	print("Current scores - P1: ", score_player1, " P2: ", score_player2)
 
 	update_score_display()
+
+	# Reset player positions after goal
+	reset_player_positions()
+
 	check_winner()
+
+func reset_player_positions():
+	if player1:
+		player1.global_position = PLAYER1_START_POS
+		player1.velocity = Vector2.ZERO
+		last_position_p1 = player1.global_position
+	if player2:
+		player2.global_position = PLAYER2_START_POS
+		player2.velocity = Vector2.ZERO
+		last_position_p2 = player2.global_position
+	print("Players reset to starting positions")
 
 func update_score_display():
 	if score_label:
@@ -310,11 +329,13 @@ func restart_game():
 	update_score_display()
 
 	if player1:
-		player1.global_position = Vector2(300, 324)
+		player1.global_position = PLAYER1_START_POS
+		player1.velocity = Vector2.ZERO
 		player1.set_physics_process(true)
 		last_position_p1 = player1.global_position
 	if player2:
-		player2.global_position = Vector2(850, 324)
+		player2.global_position = PLAYER2_START_POS
+		player2.velocity = Vector2.ZERO
 		player2.set_physics_process(true)
 		last_position_p2 = player2.global_position
 
