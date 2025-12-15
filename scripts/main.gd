@@ -70,9 +70,15 @@ func _initialize_game_state():
 	if player1:
 		player1.set_physics_process(false)
 		last_position_p1 = player1.global_position
+		# Set HUD reference for Player 1
+		if player1.has_method("set_hud_reference") and hud_player1:
+			player1.set_hud_reference(hud_player1)
 	if player2:
 		player2.set_physics_process(false)
 		last_position_p2 = player2.global_position
+		# Set HUD reference for Player 2
+		if player2.has_method("set_hud_reference") and hud_player2:
+			player2.set_hud_reference(hud_player2)
 	if puck:
 		puck.set_physics_process(false)
 

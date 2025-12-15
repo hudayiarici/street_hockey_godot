@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var needle = $FuelGauge/Needle
 @onready var fuel_label = $FuelGauge/FuelLabel
 @onready var distance_value = $DistanceCounter/DistanceValue
+@onready var notification_label = $NotificationLabel
 
 # Preload gauge textures (sadece Tachimetrofull kullan, ibre ayrı)
 var gauge_bg_low_texture = preload("res://sprites/Tachimetrofull1.png")
@@ -17,6 +18,9 @@ var needle_texture = preload("res://sprites/lancetta.png")
 
 var current_fuel: float = 100.0
 var max_fuel: float = 100.0
+
+# Notification system
+var notification_timer: Timer
 
 func _ready():
 	# Set up gauge sprites
@@ -37,6 +41,15 @@ func _ready():
 		print("HUD: Needle texture set")
 	else:
 		print("ERROR: Needle not found!")
+
+	# Setup notification timer
+	notification_timer = Timer.new()
+	notification_timer.one_shot = true
+	notification_timer.timeout.connect(_on_notification_timeout)
+	add_child(notification_timer)
+
+	if notification_label:
+		notification_label.visible = false
 
 	update_fuel_display(100.0)
 	update_distance_display(0.0)
@@ -78,3 +91,15 @@ func update_distance_display(distance: float):
 
 func get_current_fuel() -> float:
 	return current_fuel
+
+func show_notification(message: String, duration: float = 2.0, color: Color = Color.YELLOW):
+	if notification_label:
+		notification_label.text = message
+		notification_label.add_theme_color_override("font_color", color)
+		notification_label.visible = true
+		notification_timer.wait_time = duration
+		notification_timer.start()
+
+func _on_notification_timeout():
+	if notification_label:
+		notification_label.visible = false

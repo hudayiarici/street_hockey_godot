@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var player_id: int = 1
 @export var use_wasd: bool = true
 
+# HUD reference for showing notifications
+var hud_reference: CanvasLayer = null
+
 const MAX_SPEED = 1000.0  
 var current_max_speed = MAX_SPEED
 const ACCELERATION = 1500.0
@@ -36,9 +39,22 @@ func _ready():
 	traction_reset_timer.timeout.connect(_on_traction_reset_timeout)
 	add_child(traction_reset_timer)
 
+func set_hud_reference(hud: CanvasLayer):
+	hud_reference = hud
+
+func show_hud_notification(message: String, duration: float = 2.0, color: Color = Color.YELLOW):
+	if hud_reference and hud_reference.has_method("show_notification"):
+		hud_reference.show_notification(message, duration, color)
+
 func apply_speed_modifier(modifier: float):
 	speed_reset_timer.stop() # Cancel reset if we enter a new zone
 	current_max_speed = MAX_SPEED * modifier
+
+	# Show notification based on modifier with color
+	if modifier > 1.0:
+		show_hud_notification("SPEED BOOST!", 3.0, Color.GREEN)
+	elif modifier < 1.0:
+		show_hud_notification("SLOWED DOWN!", 3.0, Color.ORANGE)
 
 func remove_speed_modifier(duration: float = 1.0):
 	speed_reset_timer.wait_time = duration
@@ -50,6 +66,10 @@ func _on_speed_reset_timeout():
 func apply_traction_modifier(modifier: float):
 	traction_reset_timer.stop() # Cancel reset if we enter a new zone
 	current_acceleration = ACCELERATION * modifier
+
+	# Show notification for low traction with red color
+	if modifier < 1.0:
+		show_hud_notification("OIL! LOW TRACTION!", 1.0, Color.RED)
 
 func remove_traction_modifier(duration: float = 1.0):
 	traction_reset_timer.wait_time = duration
