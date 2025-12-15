@@ -79,21 +79,31 @@ Week 2 introduces a polished user interface with fuel management, distance track
 - [x] **Distance Counter:** Tracks total distance traveled by both players separately in real-time.
 - [x] **Dual HUD System:** Each player has their own HUD (Player 1: top-left, Player 2: top-right).
 - [x] **Fuel Refill Mechanic:** Hitting the puck refills your fuel by 10% (up to a maximum of 100%)!
-- [x] **Fuel Stations:** Fuel refill zones in top corners (5% per second):
-  - **Player 1 Station:** Top-left corner of the map
-  - **Player 2 Station:** Top-right corner of the map
-- [x] **Real-time Notifications:** Color-coded on-screen notifications for game events:
-  - 🟢 **"SPEED BOOST!"** (Green) - Speed boost activated
-  - 🟠 **"SLOWED DOWN!"** (Orange) - Hit traffic cone
-  - 🔴 **"OIL! LOW TRACTION!"** (Red) - Entered oil spill
-  - 🟡 **"FUEL +10%"** (Yellow) - Hit the puck
-- [x] **Goal Reset System:** Players automatically return to starting positions after each goal.
 - [x] **Animated Fuel Gauge:** Uses 3-stage visual feedback with animated needle:
   - **100%-67%**: Green gauge (`Tachimetrofull6`)
   - **66%-34%**: Orange gauge (`Tachimetrofull4`)
   - **33%-0%**: Red gauge (`Tachimetrofull1`)
   - Needle (`lancetta`) rotates counter-clockwise from 0° (100% fuel) to -270° (0% fuel)
   - Only uses `Tachimetrofull` sprites (without drawn needle), needle is separate animated sprite
+
+# Godot Piscine - Week 3: Polish & Final Features
+
+Week 3 adds the finishing touches with enhanced visual feedback, fuel stations, and quality-of-life improvements that complete the game experience.
+
+## 🎯 Features (Week 3)
+
+### Polish & Enhancement Features
+- [x] **Standard Resolution:** Upgraded to **1280x720** (720p HD, 16:9) for optimal compatibility across all displays.
+- [x] **Fuel Stations:** Strategic refill zones in map corners (5% per second):
+  - **Player 1 Station:** Top-left corner of the map
+  - **Player 2 Station:** Top-right corner of the map
+- [x] **Real-time Notifications:** Color-coded HUD notifications for immediate visual feedback:
+  - 🟢 **"SPEED BOOST!"** (Green) - Speed boost activated
+  - 🟠 **"SLOWED DOWN!"** (Orange) - Hit traffic cone
+  - 🔴 **"OIL! LOW TRACTION!"** (Red) - Entered oil spill
+  - 🟡 **"FUEL +10%"** (Yellow) - Hit the puck
+- [x] **Goal Reset System:** Players automatically return to starting positions after each goal for seamless gameplay flow.
+- [x] **Player-Specific Notifications:** Each player sees notifications on their side of the screen (P1: left-center, P2: right-center).
 
 ## 🎮 Updated Controls
 
@@ -110,6 +120,18 @@ Week 2 introduces a polished user interface with fuel management, distance track
 2. **Gameplay** → Move taxis, consume fuel, track distance
 3. **Pause Menu** → Press ESC anytime
 4. **Game Over** → When fuel reaches 0, or 3 goals scored
+
+## 🎮 Game Status
+
+**Status:** ✅ **COMPLETE** - All core features and polish implemented!
+
+The game is now fully playable with:
+- Complete 2-player competitive gameplay
+- Full HUD system with fuel management
+- Interactive obstacles and power-ups
+- Visual feedback and notifications
+- Fuel refill stations for strategic gameplay
+- Polished game flow from start to finish
 
 ## 🚀 How to Run
 

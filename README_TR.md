@@ -79,21 +79,31 @@ Hafta 2'de yakıt yönetimi, mesafe takibi ve düzgün oyun akış ekranları il
 - [x] **Mesafe Sayacı:** Her iki oyuncunun da gittiği toplam mesafeyi ayrı ayrı gerçek zamanlı olarak takip eder.
 - [x] **İkili HUD Sistemi:** Her oyuncunun kendi HUD'u var (Oyuncu 1: sol üst, Oyuncu 2: sağ üst).
 - [x] **Yakıt Doldurma Mekaniği:** Puck'a çarptığınızda yakıtınız %10 artıyor (maksimum %100'e kadar)!
-- [x] **Yakıt İstasyonları:** Üst köşelerde yakıt doldurma bölgeleri (saniyede %5):
-  - **Oyuncu 1 İstasyonu:** Haritanın sol üst köşesi
-  - **Oyuncu 2 İstasyonu:** Haritanın sağ üst köşesi
-- [x] **Gerçek Zamanlı Bildirimler:** Oyun olayları için renkli ekran bildirimleri:
-  - 🟢 **"SPEED BOOST!"** (Yeşil) - Hız artışı aktif
-  - 🟠 **"SLOWED DOWN!"** (Turuncu) - Koniye çarpıldı
-  - 🔴 **"OIL! LOW TRACTION!"** (Kırmızı) - Yağ lekesine girildi
-  - 🟡 **"FUEL +10%"** (Sarı) - Puck'a çarpıldı
-- [x] **Gol Sonrası Reset:** Her gol sonrası oyuncular otomatik olarak başlangıç pozisyonlarına döner.
 - [x] **Animasyonlu Yakıt Göstergesi:** 3 aşamalı görsel geri bildirim ve animasyonlu ibre kullanır:
   - **%100-%67**: Yeşil gösterge (`Tachimetrofull6`)
   - **%66-%34**: Turuncu gösterge (`Tachimetrofull4`)
   - **%33-%0**: Kırmızı gösterge (`Tachimetrofull1`)
   - İbre (`lancetta`) yakıt seviyesine göre saat yönünün tersine 0° (%100 yakıt) ile -270° (%0 yakıt) arasında döner
   - Sadece `Tachimetrofull` sprite'ları kullanılıyor (ibre çizilmemiş), ibre ayrı animasyonlu sprite
+
+# Godot Piscine - Hafta 3: Son Rötuşlar ve Final Özellikler
+
+Hafta 3'te gelişmiş görsel geri bildirim, yakıt istasyonları ve oyun deneyimini tamamlayan kalite iyileştirmeleri eklendi.
+
+## 🎯 Özellikler (Hafta 3)
+
+### Rötuş ve İyileştirme Özellikleri
+- [x] **Standart Çözünürlük:** Tüm ekranlarda optimal uyumluluk için **1280x720** (720p HD, 16:9) çözünürlüğe yükseltildi.
+- [x] **Yakıt İstasyonları:** Harita köşelerinde stratejik yakıt doldurma bölgeleri (saniyede %5):
+  - **Oyuncu 1 İstasyonu:** Haritanın sol üst köşesi
+  - **Oyuncu 2 İstasyonu:** Haritanın sağ üst köşesi
+- [x] **Gerçek Zamanlı Bildirimler:** Anında görsel geri bildirim için renkli HUD bildirimleri:
+  - 🟢 **"SPEED BOOST!"** (Yeşil) - Hız artışı aktif
+  - 🟠 **"SLOWED DOWN!"** (Turuncu) - Koniye çarpıldı
+  - 🔴 **"OIL! LOW TRACTION!"** (Kırmızı) - Yağ lekesine girildi
+  - 🟡 **"FUEL +10%"** (Sarı) - Puck'a çarpıldı
+- [x] **Gol Sonrası Reset Sistemi:** Sorunsuz oyun akışı için her gol sonrası oyuncular otomatik olarak başlangıç pozisyonlarına döner.
+- [x] **Oyuncuya Özel Bildirimler:** Her oyuncu kendi tarafında bildirimleri görür (Oyuncu 1: sol-orta, Oyuncu 2: sağ-orta).
 
 ## 🎮 Güncellenmiş Kontroller
 
@@ -110,6 +120,18 @@ Hafta 2'de yakıt yönetimi, mesafe takibi ve düzgün oyun akış ekranları il
 2. **Oynanış** → Taksileri hareket ettirin, yakıt tüketin, mesafe kaydedin
 3. **Duraklama Menüsü** → İstediğiniz zaman ESC'ye basın
 4. **Oyun Sonu** → Yakıt 0'a ulaştığında veya 3 gol atıldığında
+
+## 🎮 Oyun Durumu
+
+**Durum:** ✅ **TAMAMLANDI** - Tüm temel özellikler ve rötuşlar uygulandı!
+
+Oyun artık tamamen oynanabilir durumda:
+- Eksiksiz 2 oyunculu rekabet modu
+- Yakıt yönetimi ile tam HUD sistemi
+- Etkileşimli engeller ve güçlendirmeler
+- Görsel geri bildirim ve bildirimler
+- Stratejik oynanış için yakıt istasyonları
+- Baştan sona cilalı oyun akışı
 
 ## 🚀 Nasıl Çalıştırılır
 
