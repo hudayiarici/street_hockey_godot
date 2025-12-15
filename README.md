@@ -4,9 +4,10 @@ This project is a 2-player air hockey game built for the Godot Piscine education
 
 ## 🏒 Game Rules
 
-- **Objective:** Score 3 goals to win!
+- **Objective:** Score 5 goals to win!
 - **Scoring:** Hit the puck into your opponent's goal (left goal = Player 2 scores, right goal = Player 1 scores).
 - **Movement:** Players are restricted to their half of the field.
+- **Fuel Management:** If your fuel runs out, your opponent scores 1 point and the round resets. The game continues until someone reaches 5 points!
 
 ## ✨ Features & Bonus (Week 0)
 
@@ -71,7 +72,7 @@ Week 2 introduces a polished user interface with fuel management, distance track
 - [x] **Start Screen:** Game begins with a welcome screen. Press `SPACE` to start, or `E` to exit.
 - [x] **Fuel Counter:** Visual fuel gauge with animated sprites from Week 2 assets. **Each player has their own fuel system.**
 - [x] **Fuel Consumption:** Fuel decreases as taxis move (5 fuel/second). **Separate tracking for Player 1 and Player 2.**
-- [x] **Game Over Screen:** Displays when a player runs out of fuel, showing both players' distances.
+- [x] **Out of Fuel Penalty:** When a player runs out of fuel, the opponent scores 1 point and the round resets (positions and fuel are restored). The game ends when a player reaches 5 points.
 
 ### Bonus Features
 - [x] **Pause Menu:** Press `ESC` to pause the game anytime. Press `SPACE` to resume, `R` to restart, or `E` to exit.
@@ -99,8 +100,10 @@ Week 3 adds the finishing touches with enhanced visual feedback, fuel stations, 
   - **Player 2 Station:** Top-right corner of the map
 - [x] **Real-time Notifications:** Color-coded HUD notifications for immediate visual feedback:
   - 🟢 **"SPEED BOOST!"** (Green) - Speed boost activated
+  - 🟢 **"OPPONENT OUT OF FUEL! +1 POINT"** (Green) - Opponent ran out of fuel
   - 🟠 **"SLOWED DOWN!"** (Orange) - Hit traffic cone
   - 🔴 **"OIL! LOW TRACTION!"** (Red) - Entered oil spill
+  - 🔴 **"OUT OF FUEL! -1 POINT"** (Red) - You ran out of fuel
   - 🟡 **"FUEL +10%"** (Yellow) - Hit the puck
 - [x] **Goal Reset System:** Players automatically return to starting positions after each goal for seamless gameplay flow.
 - [x] **Player-Specific Notifications:** Each player sees notifications on their side of the screen (P1: left-center, P2: right-center).
@@ -119,7 +122,8 @@ Week 3 adds the finishing touches with enhanced visual feedback, fuel stations, 
 1. **Start Screen** → Press SPACE
 2. **Gameplay** → Move taxis, consume fuel, track distance
 3. **Pause Menu** → Press ESC anytime
-4. **Game Over** → When fuel reaches 0, or 3 goals scored
+4. **Round Reset** → When fuel reaches 0, opponent gets +1 point and round resets
+5. **Game Over** → When a player reaches 5 points
 
 ## 🎮 Game Status
 

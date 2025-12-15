@@ -4,9 +4,10 @@ Bu proje, Godot Piscine eğitim serisi için geliştirilmiş 2 oyunculu bir hava
 
 ## 🏒 Oyun Kuralları
 
-- **Amaç:** Kazanmak için 3 gol atın!
+- **Amaç:** Kazanmak için 5 gol atın!
 - **Puanlama:** Puck'ı rakibinizin kalesine sokun (sol kale = Oyuncu 2 skor, sağ kale = Oyuncu 1 skor).
 - **Hareket:** Oyuncular kendi yarı sahalarında kalmalıdır.
+- **Yakıt Yönetimi:** Yakıtınız biterse, rakibiniz 1 puan kazanır ve el yeniden başlar. Oyun birisi 5 puana ulaşana kadar devam eder!
 
 ## ✨ Özellikler ve Bonuslar (Hafta 0)
 
@@ -71,7 +72,7 @@ Hafta 2'de yakıt yönetimi, mesafe takibi ve düzgün oyun akış ekranları il
 - [x] **Başlangıç Ekranı:** Oyun bir karşılama ekranı ile başlıyor. Başlamak için `SPACE`, çıkmak için `E` tuşuna basın.
 - [x] **Yakıt Sayacı:** Week 2 asset'lerinden alınan animasyonlu sprite'lar ile görsel yakıt göstergesi. **Her oyuncunun kendi yakıt sistemi var.**
 - [x] **Yakıt Tüketimi:** Taksiler hareket ettikçe yakıt azalıyor (5 yakıt/saniye). **Oyuncu 1 ve Oyuncu 2 için ayrı takip.**
-- [x] **Oyun Sonu Ekranı:** Bir oyuncunun yakıtı bittiğinde ekrana gelir ve her iki oyuncunun mesafesini gösterir.
+- [x] **Yakıt Bitme Cezası:** Bir oyuncunun yakıtı bittiğinde rakip 1 puan kazanır ve el yeniden başlar (pozisyonlar ve yakıt sıfırlanır). Oyun bir oyuncu 5 puana ulaştığında sona erer.
 
 ### Bonus Özellikler
 - [x] **Duraklama Menüsü:** İstediğiniz zaman `ESC` tuşuna basarak oyunu durdurun. Devam için `SPACE`, yeniden başlat için `R`, çıkış için `E`.
@@ -99,8 +100,10 @@ Hafta 3'te gelişmiş görsel geri bildirim, yakıt istasyonları ve oyun deneyi
   - **Oyuncu 2 İstasyonu:** Haritanın sağ üst köşesi
 - [x] **Gerçek Zamanlı Bildirimler:** Anında görsel geri bildirim için renkli HUD bildirimleri:
   - 🟢 **"SPEED BOOST!"** (Yeşil) - Hız artışı aktif
+  - 🟢 **"OPPONENT OUT OF FUEL! +1 POINT"** (Yeşil) - Rakibin yakıtı bitti
   - 🟠 **"SLOWED DOWN!"** (Turuncu) - Koniye çarpıldı
   - 🔴 **"OIL! LOW TRACTION!"** (Kırmızı) - Yağ lekesine girildi
+  - 🔴 **"OUT OF FUEL! -1 POINT"** (Kırmızı) - Yakıtınız bitti
   - 🟡 **"FUEL +10%"** (Sarı) - Puck'a çarpıldı
 - [x] **Gol Sonrası Reset Sistemi:** Sorunsuz oyun akışı için her gol sonrası oyuncular otomatik olarak başlangıç pozisyonlarına döner.
 - [x] **Oyuncuya Özel Bildirimler:** Her oyuncu kendi tarafında bildirimleri görür (Oyuncu 1: sol-orta, Oyuncu 2: sağ-orta).
@@ -119,7 +122,8 @@ Hafta 3'te gelişmiş görsel geri bildirim, yakıt istasyonları ve oyun deneyi
 1. **Başlangıç Ekranı** → SPACE'e basın
 2. **Oynanış** → Taksileri hareket ettirin, yakıt tüketin, mesafe kaydedin
 3. **Duraklama Menüsü** → İstediğiniz zaman ESC'ye basın
-4. **Oyun Sonu** → Yakıt 0'a ulaştığında veya 3 gol atıldığında
+4. **El Sıfırlama** → Yakıt 0'a ulaştığında rakip +1 puan alır ve el yeniden başlar
+5. **Oyun Sonu** → Bir oyuncu 5 puana ulaştığında
 
 ## 🎮 Oyun Durumu
 

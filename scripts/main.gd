@@ -12,7 +12,7 @@ extends Node2D
 
 var score_player1 = 0
 var score_player2 = 0
-const WINNING_SCORE = 3
+const WINNING_SCORE = 5
 var game_over = false
 var is_paused = false
 var game_started = false
@@ -209,23 +209,47 @@ func update_distance(delta: float):
 			hud_player2.update_distance_display(distance_player2)
 
 func game_over_out_of_fuel(player_id: int):
-	game_over = true
+	# Benzini biten oyuncu 1 puan kaybediyor, diğeri 1 puan kazanıyor
+	var winner_id = 2 if player_id == 1 else 1
 
-	# Stop all physics
-	if player1:
-		player1.set_physics_process(false)
-	if player2:
-		player2.set_physics_process(false)
+	if winner_id == 1:
+		score_player1 += 1
+	else:
+		score_player2 += 1
+
+	# Kaybeden oyuncuya bildirim göster
+	if player_id == 1 and hud_player1:
+		hud_player1.show_notification("OUT OF FUEL!\n-1 POINT", 3.0, Color.RED)
+	elif player_id == 2 and hud_player2:
+		hud_player2.show_notification("OUT OF FUEL!\n-1 POINT", 3.0, Color.RED)
+
+	# Kazanan oyuncuya bildirim göster
+	if winner_id == 1 and hud_player1:
+		hud_player1.show_notification("OPPONENT OUT OF FUEL!\n+1 POINT", 3.0, Color.GREEN)
+	elif winner_id == 2 and hud_player2:
+		hud_player2.show_notification("OPPONENT OUT OF FUEL!\n+1 POINT", 3.0, Color.GREEN)
+
+	update_score_display()
+
+	# Pozisyonları ve benzini resetle (tıpkı gol atıldığında gibi)
+	reset_player_positions()
+	fuel_player1 = MAX_FUEL
+	fuel_player2 = MAX_FUEL
+
+	# HUD'ları güncelle
+	if hud_player1:
+		hud_player1.update_fuel_display(100.0)
+	if hud_player2:
+		hud_player2.update_fuel_display(100.0)
+
+	# Puck'ı resetle
 	if puck:
-		puck.linear_velocity = Vector2.ZERO
-		puck.set_physics_process(false)
+		puck.reset_puck()
 
-	# Show game over screen with the losing player and distances
-	if game_over_screen:
-		var message = "PLAYER " + str(player_id) + " RAN OUT OF FUEL!"
-		game_over_screen.show_game_over_fuel(player_id, distance_player1, distance_player2)
+	# Kazanan kontrolü yap (3 puana ulaştıysa oyunu bitir)
+	check_winner()
 
-	print("Game Over! Player ", player_id, " ran out of fuel. P1 distance: ", distance_player1, " P2 distance: ", distance_player2)
+	print("Player ", player_id, " ran out of fuel. Player ", winner_id, " gets 1 point!")
 
 func pause_game():
 	print("Game paused")
@@ -328,7 +352,7 @@ func end_game(winner_id: int):
 	if game_over_screen:
 		game_over_screen.show_game_over_score(winner_id, distance_player1, distance_player2)
 
-	print("Game Over! Player ", winner_id, " wins by scoring 3 goals!")
+	print("Game Over! Player ", winner_id, " wins by scoring 5 goals!")
 
 func restart_game():
 	print("Restarting game...")
