@@ -99,6 +99,12 @@ tile_set = SubResource("TileSet_trceg")
 [node name="House35" parent="." instance=ExtResource("8_choun")]
 position = Vector2(152, 33)
 
+[node name="House62" parent="House35" instance=ExtResource("8_choun")]
+position = Vector2(54, 520)
+
+[node name="House63" parent="House35" instance=ExtResource("8_choun")]
+position = Vector2(55, 136)
+
 [node name="House36" parent="." instance=ExtResource("8_choun")]
 position = Vector2(201, 33)
 
@@ -217,16 +223,16 @@ position = Vector2(698, 610)
 position = Vector2(586, 97)
 
 [node name="BoostPad2" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(279, 463)
+position = Vector2(279, 481)
 
 [node name="BoostPad3" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(279, 192)
+position = Vector2(283, 223)
 
 [node name="BoostPad4" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(1008, 179)
+position = Vector2(1010, 224)
 
 [node name="BoostPad5" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(1018, 469)
+position = Vector2(1020, 485)
 
 [node name="Cone" parent="." instance=ExtResource("7_85g3d")]
 position = Vector2(1212, 420)
@@ -392,3 +398,9 @@ position = Vector2(1268, 236)
 
 [node name="House68" parent="." instance=ExtResource("8_choun")]
 position = Vector2(1269, 482)
+
+[node name="House69" parent="." instance=ExtResource("8_choun")]
+position = Vector2(1085, 557)
+
+[node name="House70" parent="." instance=ExtResource("8_choun")]
+position = Vector2(1086, 173)
