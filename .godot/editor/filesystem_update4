@@ -3,3 +3,4 @@ res://scripts/hud.gd
 res://scripts/taxi.gd
 res://scripts/puck.gd
 res://scenes/main.tscn
+res://scenes/taxi2.tscn

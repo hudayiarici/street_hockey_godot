@@ -10,6 +10,7 @@ const SCREEN_WIDTH = 1280.0
 const SCREEN_HEIGHT = 720.0
 const GOAL_TOP = 240.0
 const GOAL_BOTTOM = 480.0
+const GOAL_LINE = 20.0  # Goal line further inside (was 50)
 const MIN_VELOCITY = 5.0
 const BOUNDS_MARGIN = 100.0
 
@@ -84,14 +85,14 @@ func check_bounds():
 func check_goal():
 	var pos = global_position
 	var is_in_goal_area_y = pos.y > GOAL_TOP and pos.y < GOAL_BOTTOM
-	
-	if pos.x < MARGIN and is_in_goal_area_y and can_score:
+
+	if pos.x < GOAL_LINE and is_in_goal_area_y and can_score:
 		can_score = false
 		print("LEFT GOAL! Player 2 scores!")
 		goal_scored.emit(2)
 		reset_puck()
-	
-	elif pos.x > SCREEN_WIDTH - MARGIN and is_in_goal_area_y and can_score:
+
+	elif pos.x > SCREEN_WIDTH - GOAL_LINE and is_in_goal_area_y and can_score:
 		can_score = false
 		print("RIGHT GOAL! Player 1 scores!")
 		goal_scored.emit(1)

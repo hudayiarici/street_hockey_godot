@@ -114,7 +114,7 @@ func _physics_process(delta):
 	if player_id == 1:
 		target_x = clamp(position.x, MARGIN, CENTER_X - 10)
 	else:
-		target_x = clamp(position.x, CENTER_X + 10, SCREEN_WIDTH - MARGIN)
+		target_x = clamp(position.x, CENTER_X + 10, SCREEN_WIDTH - MARGIN - 10)
 	
 	if position.x != target_x:
 		position.x = target_x

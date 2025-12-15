@@ -108,12 +108,6 @@ position = Vector2(206, 553)
 [node name="House72" parent="." instance=ExtResource("8_choun")]
 position = Vector2(207, 169)
 
-[node name="OilSpill3" parent="." instance=ExtResource("9_ya4ey")]
-position = Vector2(36, 351)
-
-[node name="OilSpill4" parent="." instance=ExtResource("9_ya4ey")]
-position = Vector2(1244, 350)
-
 [node name="House37" parent="." instance=ExtResource("8_choun")]
 position = Vector2(249, 33)
 
@@ -181,7 +175,7 @@ position = Vector2(10, 166)
 position = Vector2(1269, 551)
 
 [node name="House62" parent="." instance=ExtResource("8_choun")]
-position = Vector2(97, 352)
+position = Vector2(104, 352)
 
 [node name="House33" parent="." instance=ExtResource("8_choun")]
 position = Vector2(10, 33)
@@ -386,7 +380,7 @@ position = Vector2(1217, 33)
 position = Vector2(1266, 33)
 
 [node name="House64" parent="." instance=ExtResource("8_choun")]
-position = Vector2(1180, 346)
+position = Vector2(1174, 346)
 
 [node name="House65" parent="." instance=ExtResource("8_choun")]
 position = Vector2(9, 483)
