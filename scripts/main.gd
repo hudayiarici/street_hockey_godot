@@ -147,28 +147,45 @@ func _process(delta):
 		game_over_out_of_fuel(2)
 
 func update_fuel(delta: float):
+	# Fuel refill zones (in world coordinates, top corners of the map)
+	const FUEL_REFILL_RATE = 1.0  # 1% per second
+	const P1_REFILL_ZONE = Rect2(50, 50, 150, 100)  # Top-left corner (world coords)
+	const P2_REFILL_ZONE = Rect2(1080, 50, 150, 100)  # Top-right corner (world coords)
+
 	# Check if each player is moving and consume their fuel separately
 	if player1:
 		var player1_moving = player1.velocity.length() > 10.0
-		if player1_moving:
+		var player1_pos = player1.global_position
+
+		# Check if in refill zone
+		if P1_REFILL_ZONE.has_point(player1_pos):
+			fuel_player1 += FUEL_REFILL_RATE * delta
+			fuel_player1 = min(MAX_FUEL, fuel_player1)
+		elif player1_moving:
 			fuel_player1 -= FUEL_CONSUMPTION_RATE * delta
 			fuel_player1 = max(0, fuel_player1)
 
-			# Update Player 1 HUD
-			if hud_player1:
-				var fuel_percent = (fuel_player1 / MAX_FUEL) * 100.0
-				hud_player1.update_fuel_display(fuel_percent)
+		# Update Player 1 HUD
+		if hud_player1:
+			var fuel_percent = (fuel_player1 / MAX_FUEL) * 100.0
+			hud_player1.update_fuel_display(fuel_percent)
 
 	if player2:
 		var player2_moving = player2.velocity.length() > 10.0
-		if player2_moving:
+		var player2_pos = player2.global_position
+
+		# Check if in refill zone
+		if P2_REFILL_ZONE.has_point(player2_pos):
+			fuel_player2 += FUEL_REFILL_RATE * delta
+			fuel_player2 = min(MAX_FUEL, fuel_player2)
+		elif player2_moving:
 			fuel_player2 -= FUEL_CONSUMPTION_RATE * delta
 			fuel_player2 = max(0, fuel_player2)
 
-			# Update Player 2 HUD
-			if hud_player2:
-				var fuel_percent = (fuel_player2 / MAX_FUEL) * 100.0
-				hud_player2.update_fuel_display(fuel_percent)
+		# Update Player 2 HUD
+		if hud_player2:
+			var fuel_percent = (fuel_player2 / MAX_FUEL) * 100.0
+			hud_player2.update_fuel_display(fuel_percent)
 
 func update_distance(delta: float):
 	# Update distance for Player 1

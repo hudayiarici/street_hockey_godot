@@ -44,6 +44,7 @@ In this week, we expanded the simulation by building a city environment and addi
 - **Engine:** Godot 4.x
 - **Language:** GDScript
 - **Physics:** RigidBody2D interactions implemented for the Puck.
+- **Resolution:** **1280x720** (720p HD, 16:9 aspect ratio) - Standard resolution for optimal compatibility.
 - **Display:** Configured for **Exclusive Fullscreen** with `canvas_items` stretch mode for responsive scaling on any monitor.
 
 ## 🔄 Recent Updates
@@ -78,6 +79,15 @@ Week 2 introduces a polished user interface with fuel management, distance track
 - [x] **Distance Counter:** Tracks total distance traveled by both players separately in real-time.
 - [x] **Dual HUD System:** Each player has their own HUD (Player 1: top-left, Player 2: top-right).
 - [x] **Fuel Refill Mechanic:** Hitting the puck refills your fuel by 10% (up to a maximum of 100%)!
+- [x] **Fuel Stations:** Fuel refill zones in top corners (1% per second):
+  - **Player 1 Station:** Top-left corner of the map
+  - **Player 2 Station:** Top-right corner of the map
+- [x] **Real-time Notifications:** Color-coded on-screen notifications for game events:
+  - 🟢 **"SPEED BOOST!"** (Green) - Speed boost activated
+  - 🟠 **"SLOWED DOWN!"** (Orange) - Hit traffic cone
+  - 🔴 **"OIL! LOW TRACTION!"** (Red) - Entered oil spill
+  - 🟡 **"FUEL +10%"** (Yellow) - Hit the puck
+- [x] **Goal Reset System:** Players automatically return to starting positions after each goal.
 - [x] **Animated Fuel Gauge:** Uses 3-stage visual feedback with animated needle:
   - **100%-67%**: Green gauge (`Tachimetrofull6`)
   - **66%-34%**: Orange gauge (`Tachimetrofull4`)

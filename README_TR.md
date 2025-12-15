@@ -44,6 +44,7 @@ Bu hafta, bir şehir ortamı inşa ederek ve etkileşimli engeller ekleyerek sim
 - **Motor:** Godot 4.x
 - **Dil:** GDScript
 - **Fizik:** Puck için RigidBody2D etkileşimleri.
+- **Çözünürlük:** **1280x720** (720p HD, 16:9 en-boy oranı) - Optimal uyumluluk için standart çözünürlük.
 - **Ekran:** Her monitörde düzgün görünmesi için **Tam Ekran (Exclusive Fullscreen)** modu ve `canvas_items` ölçekleme ayarı yapıldı.
 
 ## 🔄 Son Güncellemeler
@@ -78,6 +79,15 @@ Hafta 2'de yakıt yönetimi, mesafe takibi ve düzgün oyun akış ekranları il
 - [x] **Mesafe Sayacı:** Her iki oyuncunun da gittiği toplam mesafeyi ayrı ayrı gerçek zamanlı olarak takip eder.
 - [x] **İkili HUD Sistemi:** Her oyuncunun kendi HUD'u var (Oyuncu 1: sol üst, Oyuncu 2: sağ üst).
 - [x] **Yakıt Doldurma Mekaniği:** Puck'a çarptığınızda yakıtınız %10 artıyor (maksimum %100'e kadar)!
+- [x] **Yakıt İstasyonları:** Üst köşelerde yakıt doldurma bölgeleri (saniyede %1):
+  - **Oyuncu 1 İstasyonu:** Haritanın sol üst köşesi
+  - **Oyuncu 2 İstasyonu:** Haritanın sağ üst köşesi
+- [x] **Gerçek Zamanlı Bildirimler:** Oyun olayları için renkli ekran bildirimleri:
+  - 🟢 **"SPEED BOOST!"** (Yeşil) - Hız artışı aktif
+  - 🟠 **"SLOWED DOWN!"** (Turuncu) - Koniye çarpıldı
+  - 🔴 **"OIL! LOW TRACTION!"** (Kırmızı) - Yağ lekesine girildi
+  - 🟡 **"FUEL +10%"** (Sarı) - Puck'a çarpıldı
+- [x] **Gol Sonrası Reset:** Her gol sonrası oyuncular otomatik olarak başlangıç pozisyonlarına döner.
 - [x] **Animasyonlu Yakıt Göstergesi:** 3 aşamalı görsel geri bildirim ve animasyonlu ibre kullanır:
   - **%100-%67**: Yeşil gösterge (`Tachimetrofull6`)
   - **%66-%34**: Turuncu gösterge (`Tachimetrofull4`)
