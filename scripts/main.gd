@@ -29,9 +29,9 @@ var distance_player2: float = 0.0
 var last_position_p1: Vector2
 var last_position_p2: Vector2
 
-# Player starting positions
-const PLAYER1_START_POS = Vector2(300, 324)
-const PLAYER2_START_POS = Vector2(850, 324)
+# Player starting positions (scaled for 1280x720)
+const PLAYER1_START_POS = Vector2(333, 360)
+const PLAYER2_START_POS = Vector2(947, 360)
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS

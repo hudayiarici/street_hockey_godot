@@ -3,14 +3,14 @@ extends RigidBody2D
 signal goal_scored(player_id: int)
 signal puck_hit(player_id: int)
 
-@export var MAX_SPEED = 16000.0 
-const FRICTION_FORCE = 1.0  
+@export var MAX_SPEED = 16000.0
+const FRICTION_FORCE = 1.0
 const MARGIN = 50.0
-const SCREEN_WIDTH = 1152.0
-const SCREEN_HEIGHT = 648.0
-const GOAL_TOP = 216.0
-const GOAL_BOTTOM = 432.0
-const MIN_VELOCITY = 5.0  
+const SCREEN_WIDTH = 1280.0
+const SCREEN_HEIGHT = 720.0
+const GOAL_TOP = 240.0
+const GOAL_BOTTOM = 480.0
+const MIN_VELOCITY = 5.0
 const BOUNDS_MARGIN = 100.0
 
 var can_score = true

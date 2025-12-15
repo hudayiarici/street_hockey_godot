@@ -13,8 +13,8 @@ var current_acceleration = ACCELERATION
 const HIT_FORCE_MULTIPLIER = 50.0 
 
 const MARGIN = 50.0
-const SCREEN_WIDTH = 1152.0
-const SCREEN_HEIGHT = 648.0
+const SCREEN_WIDTH = 1280.0
+const SCREEN_HEIGHT = 720.0
 const CENTER_X = SCREEN_WIDTH / 2
 
 @onready var animated_sprite = $AnimatedSprite2D

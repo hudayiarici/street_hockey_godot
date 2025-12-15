@@ -1,3 +1,5 @@
 res://scripts/main.gd
 res://scripts/hud.gd
 res://scripts/taxi.gd
+res://scripts/puck.gd
+res://scenes/main.tscn
