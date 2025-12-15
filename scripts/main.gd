@@ -241,12 +241,14 @@ func _on_puck_hit(player_id: int):
 		if hud_player1:
 			var fuel_percent = (fuel_player1 / MAX_FUEL) * 100.0
 			hud_player1.update_fuel_display(fuel_percent)
+			hud_player1.show_notification("FUEL +10%", 2.0, Color.YELLOW)
 		print("Player 1 fuel increased by 10%, now at: ", fuel_player1)
 	elif player_id == 2:
 		fuel_player2 = min(fuel_player2 + 10.0, MAX_FUEL)
 		if hud_player2:
 			var fuel_percent = (fuel_player2 / MAX_FUEL) * 100.0
 			hud_player2.update_fuel_display(fuel_percent)
+			hud_player2.show_notification("FUEL +10%", 2.0, Color.YELLOW)
 		print("Player 2 fuel increased by 10%, now at: ", fuel_player2)
 
 func _on_goal_scored(player_id: int):
