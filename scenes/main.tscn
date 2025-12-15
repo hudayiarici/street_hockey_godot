@@ -355,19 +355,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StartScreen" parent="." instance=ExtResource("12_start")]
-visible = false
 
 [node name="GameOverScreen" parent="." instance=ExtResource("13_gameover")]
-visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("14_pause")]
-visible = false
 
 [node name="HUD_Player1" parent="." instance=ExtResource("15_hud")]
-visible = false
 
 [node name="HUD_Player2" parent="." instance=ExtResource("16_hud2")]
-visible = false
 
 [node name="House57" parent="." instance=ExtResource("8_choun")]
 position = Vector2(1220, 684)
