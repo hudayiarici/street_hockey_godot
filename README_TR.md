@@ -79,7 +79,7 @@ Hafta 2'de yakıt yönetimi, mesafe takibi ve düzgün oyun akış ekranları il
 - [x] **Mesafe Sayacı:** Her iki oyuncunun da gittiği toplam mesafeyi ayrı ayrı gerçek zamanlı olarak takip eder.
 - [x] **İkili HUD Sistemi:** Her oyuncunun kendi HUD'u var (Oyuncu 1: sol üst, Oyuncu 2: sağ üst).
 - [x] **Yakıt Doldurma Mekaniği:** Puck'a çarptığınızda yakıtınız %10 artıyor (maksimum %100'e kadar)!
-- [x] **Yakıt İstasyonları:** Üst köşelerde yakıt doldurma bölgeleri (saniyede %1):
+- [x] **Yakıt İstasyonları:** Üst köşelerde yakıt doldurma bölgeleri (saniyede %5):
   - **Oyuncu 1 İstasyonu:** Haritanın sol üst köşesi
   - **Oyuncu 2 İstasyonu:** Haritanın sağ üst köşesi
 - [x] **Gerçek Zamanlı Bildirimler:** Oyun olayları için renkli ekran bildirimleri:

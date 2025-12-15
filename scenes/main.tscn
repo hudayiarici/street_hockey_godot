@@ -99,14 +99,20 @@ tile_set = SubResource("TileSet_trceg")
 [node name="House35" parent="." instance=ExtResource("8_choun")]
 position = Vector2(152, 33)
 
-[node name="House62" parent="House35" instance=ExtResource("8_choun")]
-position = Vector2(54, 520)
-
-[node name="House63" parent="House35" instance=ExtResource("8_choun")]
-position = Vector2(55, 136)
-
 [node name="House36" parent="." instance=ExtResource("8_choun")]
 position = Vector2(201, 33)
+
+[node name="House71" parent="." instance=ExtResource("8_choun")]
+position = Vector2(206, 553)
+
+[node name="House72" parent="." instance=ExtResource("8_choun")]
+position = Vector2(207, 169)
+
+[node name="OilSpill3" parent="." instance=ExtResource("9_ya4ey")]
+position = Vector2(36, 351)
+
+[node name="OilSpill4" parent="." instance=ExtResource("9_ya4ey")]
+position = Vector2(1244, 350)
 
 [node name="House37" parent="." instance=ExtResource("8_choun")]
 position = Vector2(249, 33)
@@ -175,7 +181,7 @@ position = Vector2(10, 166)
 position = Vector2(1269, 551)
 
 [node name="House62" parent="." instance=ExtResource("8_choun")]
-position = Vector2(110, 351)
+position = Vector2(97, 352)
 
 [node name="House33" parent="." instance=ExtResource("8_choun")]
 position = Vector2(10, 33)
@@ -355,14 +361,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StartScreen" parent="." instance=ExtResource("12_start")]
+visible = false
 
 [node name="GameOverScreen" parent="." instance=ExtResource("13_gameover")]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("14_pause")]
+visible = false
 
 [node name="HUD_Player1" parent="." instance=ExtResource("15_hud")]
+visible = false
 
 [node name="HUD_Player2" parent="." instance=ExtResource("16_hud2")]
+visible = false
 
 [node name="House57" parent="." instance=ExtResource("8_choun")]
 position = Vector2(1220, 684)

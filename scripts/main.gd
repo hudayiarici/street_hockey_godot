@@ -148,7 +148,7 @@ func _process(delta):
 
 func update_fuel(delta: float):
 	# Fuel refill zones (in world coordinates, top corners of the map)
-	const FUEL_REFILL_RATE = 1.0  # 1% per second
+	const FUEL_REFILL_RATE = 5.0  # 5% per second
 	const P1_REFILL_ZONE = Rect2(50, 50, 150, 100)  # Top-left corner (world coords)
 	const P2_REFILL_ZONE = Rect2(1080, 50, 150, 100)  # Top-right corner (world coords)
 

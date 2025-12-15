@@ -79,7 +79,7 @@ Week 2 introduces a polished user interface with fuel management, distance track
 - [x] **Distance Counter:** Tracks total distance traveled by both players separately in real-time.
 - [x] **Dual HUD System:** Each player has their own HUD (Player 1: top-left, Player 2: top-right).
 - [x] **Fuel Refill Mechanic:** Hitting the puck refills your fuel by 10% (up to a maximum of 100%)!
-- [x] **Fuel Stations:** Fuel refill zones in top corners (1% per second):
+- [x] **Fuel Stations:** Fuel refill zones in top corners (5% per second):
   - **Player 1 Station:** Top-left corner of the map
   - **Player 2 Station:** Top-right corner of the map
 - [x] **Real-time Notifications:** Color-coded on-screen notifications for game events:
